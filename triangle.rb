@@ -15,6 +15,12 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  # This also works 
+  #raise TriangleError if [a,b,c].min  <= 0  
+  x,y,z = [a,b,c].sort
+  raise TriangleError if x <= 0 
+  raise TriangleError if x + y <= z
+  
   if (a == b) and (a == c) 
       :equilateral
   elsif (( a!= b) and (a != c) and (b != c))
