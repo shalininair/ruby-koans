@@ -124,7 +124,9 @@ class AboutIteration < Neo::Koan
   #   # code to read 'file'
   #
   # When you get to the "AboutSandwichCode" koan, recheck your answer.
-  # The file handler in the File.open(filename) do |file|is is passed to the block argument instead of main 
-  # and the scope of the open to the open file and ends when the block ends
+  # The code "file = File.open(filename)" is correct, but in-efficient and 
+  # require additiona code to be able to do the same thing as "File.open(filename) do |file|"
+  # Please refer about_sandwich_code.rb
+  
 
 end

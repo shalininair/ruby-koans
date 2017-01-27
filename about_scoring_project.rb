@@ -31,6 +31,33 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   # You need to write this method
+  ## This method works and is refactored below using hash
+  # value = 0
+  # dice.sort!
+  # u_dice = dice.uniq 
+  #   u_dice.each do |u_number|
+  #   if dice.count(u_number) >= 3 
+  #     #calculate 
+  #     u_number == 1 ? value = 1000 : value = u_number * 100
+  #     dice.slice!(0..2)
+  #   end #if
+  # end # search for trios
+  # dice.each do | number|
+  #   number == 1 ? value += 100 : (number == 5 ? value += 50 : 0 )
+  # end
+  # value
+  
+  num_tracker = dice.reduce(Hash.new(0)) do |hash_tracker, numbers| 
+    hash_tracker[numbers] += 1
+    hash_tracker
+  end    
+  result = 0
+  num_tracker.each do |key, value|
+    key == 1 ? result += ((value / 3) *  1000) + ((value % 3) * 100)  : 
+    (key == 5 ? result += ((value / 3) *  100) + ((value % 3) * 50) :  result += ((value / 3) * key*  100))
+  end
+  result
+    
 end
 
 class AboutScoringProject < Neo::Koan
