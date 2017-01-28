@@ -54,7 +54,7 @@ def score(dice)
   result = 0
   num_tracker.each do |key, value|
     key == 1 ? result += ((value / 3) *  1000) + ((value % 3) * 100)  : 
-    (key == 5 ? result += ((value / 3) *  100) + ((value % 3) * 50) :  result += ((value / 3) * key*  100))
+    (key == 5 ? result += ((value / 3) * key *  100) + ((value % 3) * 50) :  result += ((value / 3) * key*  100))
   end
   result
     
